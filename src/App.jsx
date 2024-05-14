@@ -3,16 +3,28 @@ import './App.css'
 import CreateGroupForm from './components/CreateGroupForm'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [list, setList] = useState([])
+
+  function addTask(task) {
+    const objTask = {
+      id: Math.floor(Math.random(1) * 100),
+      content: task
+    }
+
+    let newList = list
+    newList.push(objTask)
+    console.log(newList)
+    setList(newList)
+  }
+
+  const tasksList = list.map(task => 
+    <li key={task.id}>{task.content}</li>
+  )
 
   return (
    <>
-    <CreateGroupForm></CreateGroupForm>
-    <h1 className="text-2xl font-semibold text-slate-50">This is my count: {count}</h1>
-    <button 
-      className="text-xs font-semibold bg-violet-500 text-violet-50 rounded-lg px-5 py-2 mt-4 font-sans" 
-      onClick={() => setCount(count + 1)}
-    >Click me</button>
+    <CreateGroupForm action={addTask}></CreateGroupForm>
+    <ul>{tasksList}</ul>
    </>
   )
 }
