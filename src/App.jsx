@@ -6,7 +6,13 @@ function App() {
 
     return (
         <>
-            
+            <header className="form container">
+                <h1 className="form-heading">Flow</h1>
+                <div className="input">
+                    <input type="text" className="input-control" placeholder="What's next to do?"/>
+                    <button className="input-submit">Create</button>
+                </div>
+            </header>
         </>
     )
 }
