@@ -19,6 +19,15 @@ function App() {
         setDescription('')
     }
 
+    function updateItem(e) {
+        let cloneList = [...list]
+        const indexToUpdate = cloneList.findIndex(item => item.id === Number(e.target.dataset.id))
+
+        cloneList[indexToUpdate].status = !cloneList[indexToUpdate].status
+        
+        setList(cloneList)
+    }
+
     return (
         <>
             <header className="form container">
@@ -33,7 +42,7 @@ function App() {
                     {
                         list.map(item =>
                             <li className="item" key={item.id}>
-                                <input type="checkbox" className="item-checkbox"/>
+                                <input type="checkbox" className="item-checkbox" data-id={item.id} onClick={updateItem}/>
                                 <span className="item-text">{item.description}</span>
                                 <div className="dropdown">
                                     <button className="dropdown-button">
