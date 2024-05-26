@@ -1,16 +1,31 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
-    // const [count, setCount] = useState(0)
+    const [list, setList] = useState([])
+    const [description, setDescription] = useState('')
+
+    function createItem() {
+        const item = {
+            id: Date.now(),
+            description: description,
+            status: false
+        }
+
+        let cloneList = [...list]
+        cloneList.push(item)
+
+        setList(cloneList)
+        setDescription('')
+    }
 
     return (
         <>
             <header className="form container">
                 <h1 className="form-heading">Flow</h1>
                 <div className="input">
-                    <input type="text" className="input-control" placeholder="What's next to do?"/>
-                    <button className="input-submit">Create</button>
+                    <input type="text" className="input-control" placeholder="What's next to do?" onChange={(e) => setDescription(e.target.value)} value={description}/>
+                    <button className="input-submit" onClick={createItem}>Create</button>
                 </div>
             </header>
             <div className="list container">
