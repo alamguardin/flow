@@ -3,6 +3,7 @@ import './App.css'
 
 import SendDataToStorage from './api/SendDataToStorage'
 import GetDataFromStorage from './api/GetDataFromStorage'
+import UpdateDataInStorage from './api/UpdateDataInStorage'
 
 function App() {
     const [list, setList] = useState([])
@@ -38,6 +39,7 @@ function App() {
         cloneList[indexToUpdate].status = !cloneList[indexToUpdate].status
 
         setList(cloneList)
+        UpdateDataInStorage(e.target.dataset.id, cloneList[indexToUpdate].status)
     }
 
     function deleteItem(id) {
@@ -60,7 +62,11 @@ function App() {
                     {
                         list.map(item =>
                             <li className="item" key={item.ref}>
-                                <input type="checkbox" className="item-checkbox" data-id={item.ref} onClick={updateItem}/>
+                                {
+                                    item.status
+                                        ? <input type="checkbox" className="item-checkbox" data-id={item.ref} onClick={updateItem} checked/>
+                                        : <input type="checkbox" className="item-checkbox" data-id={item.ref} onClick={updateItem}/>
+                                }
                                 <span className="item-text">{item.description}</span>
                                 <div className="dropdown">
                                     <button className="dropdown-button">
