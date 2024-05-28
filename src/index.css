@@ -207,6 +207,7 @@ a {
 		border: 1px solid var(--slate-300);
 		border-radius: 0.5rem;
 		transition: .2s all ease;
+		z-index: 1;
 	}
 
 	&:hover .dropdown-content {
