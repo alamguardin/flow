@@ -1,11 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 import SendDataToStorage from './api/SendDataToStorage'
+import GetDataFromStorage from './api/GetDataFromStorage'
 
 function App() {
     const [list, setList] = useState([])
     const [description, setDescription] = useState('')
+
+    useEffect(() => {
+        async function setDataList() {
+            setList(await GetDataFromStorage())
+        }
+
+        setDataList()
+    }, [])
 
     function createItem() {
         const item = {
