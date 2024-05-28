@@ -3,9 +3,6 @@ import { API_KEY } from '../utils/const'
 import { API_AUTHORIZATION } from '../utils/const'
 
 export default function SendDataToStorage(item) {
-    console.log(API_URL)
-    console.log(API_KEY)
-    console.log(API_AUTHORIZATION)
     fetch(API_URL, {
         method: 'POST',
         mode: 'cors',
