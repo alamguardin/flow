@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { Toaster, toast } from './components/Toast'
 
 import SendDataToStorage from './api/SendDataToStorage'
 import GetDataFromStorage from './api/GetDataFromStorage'
@@ -19,18 +20,23 @@ function App() {
     }, [])
 
     function createItem() {
-        const item = {
-            ref: Date.now(),
-            description: description,
-            status: false
+        if (description) {
+            const item = {
+                ref: Date.now(),
+                description: description,
+                status: false
+            }
+    
+            let cloneList = [...list]
+            cloneList.push(item)
+    
+            setList(cloneList)
+            setDescription('')
+            SendDataToStorage(item)
+            toast('Tarea creada satisfactoriamente')
+        } else {
+            toast('Debes agregar algo en el campo de texto')
         }
-
-        let cloneList = [...list]
-        cloneList.push(item)
-
-        setList(cloneList)
-        setDescription('')
-        SendDataToStorage(item)
     }
 
     function updateItem(e) {
@@ -48,10 +54,12 @@ function App() {
         console.log(cloneList)
         setList(cloneList)
         DeleteDataInStorage(id)
+        toast('Tarea eliminada con exito')
     }
 
     return (
-        <>
+        <>  
+            <Toaster></Toaster>
             <header className="form container">
                 <h1 className="form-heading">Flow</h1>
                 <div className="input">

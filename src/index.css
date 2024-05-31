@@ -232,3 +232,29 @@ a {
 		}
 	}
 }
+
+/* ---- Toasts Styles ---- */
+.toast-container {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.toast-item {
+	opacity: 0;
+	transform: translate(0);
+	padding: 0.5rem;
+	background: var(--slate-100);
+	border: 1px solid var(--slate-300);
+	border-radius: 0.5rem;
+	transition: .2s all ease;
+	font-size: 0.875rem;
+	color: var(--slate-500);
+}
+
+.toast-item.active {
+	opacity: 1;
+	transform: translateY(3rem);
+}
