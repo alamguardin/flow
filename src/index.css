@@ -24,6 +24,11 @@
 	box-sizing: border-box;
 }
 
+body {
+	width: 100%;
+	overflow: hidden;
+}
+
 .container {
 	max-width: 800px;
 	width: 90%;
@@ -57,7 +62,7 @@ a {
 
 .input-control {
 	width: 100%;
-	padding: 1.125rem;
+	padding: 1.125rem 7.5rem 1.125rem 1.125rem;
 	background: var(--slate-100);
 	border: 0.125rem solid var(--slate-300);
 	border-radius: 0.5rem;
@@ -124,6 +129,7 @@ a {
 	}
 
 	.item-text {
+		display: inline-block;
 		font-size: 1rem;
 		color: var(--slate-500);
 		transition: .2s all ease-out;
@@ -257,4 +263,21 @@ a {
 .toast-item.active {
 	opacity: 1;
 	transform: translateY(3rem);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	:root {
+		font-size: 14px
+	}
+}
+
+@media (max-width: 425px) {
+	.form {
+		margin-top: 3rem;
+	}
+
+	.dropdown {
+		display: none;
+	}
 }

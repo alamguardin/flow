@@ -71,7 +71,7 @@ function App() {
                 <ul className="list-container">
                     {
                         list.map(item =>
-                            <li className="item" key={item.ref}>
+                            <li className="item" key={item.ref} onTouchMove={() => deleteItem(item.ref)}>
                                 <input type="checkbox" className="item-checkbox" data-id={item.ref} onClick={updateItem} checked={item.status ? true : false} readOnly/>
                                 <span className="item-text">{item.description}</span>
                                 <div className="dropdown">
