@@ -1,0 +1,110 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    border-right: 1px solid #111827;
+    padding: 1.5rem 1rem;
+}
+
+.sidebar-item a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #9ca3af;
+    border-radius: 0.5rem;
+    transition: .2s all ease;
+}
+
+.sidebar-item a:hover {
+    background: #111827;
+    color: #f9fafb;
+}
+
+.sidebar-subitem a::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 100%;
+    border: 2px solid #f9fafb;
+    margin-right: 0.5rem;
+}
+
+.sidebar-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-profile {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 100%;
+    border: 2px solid #f9fafb;
+}
+
+.sidebar-settings {
+    position: relative;
+}
+
+.sidebar-settings-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 100%;
+    background: none;
+    color: #9ca3af;
+    transition: .2s all ease;
+}
+
+.sidebar-settings-button:hover {
+    color: #f9fafb;
+    background: #1f2937;
+}
+
+.sidebar-settings-button:focus {
+    background: #111827;
+}
+
+.sidebar-settings-button svg {
+    width: 1.5rem;
+}
+
+.sidebar-settings-menu {
+    position: absolute;
+    display: none;
+    min-width: 9.375rem;
+    top: -300%;
+    left: 0;
+    background: #030712;
+    padding: 1rem;
+    border: 1px solid #111827;
+    border-radius: 0.5rem;
+}
+
+.sidebar-settings-item a {
+    display: block;
+    padding: 0.25rem 1rem;
+    color: #9ca3af;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.sidebar-settings-item a:hover {
+    background: #111827;
+}
+
+.sidebar-settings-button:focus-within+.sidebar-settings-menu {
+    display: block;
+}

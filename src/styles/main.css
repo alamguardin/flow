@@ -1,0 +1,39 @@
+@import url(sidebar.css);
+
+:root {
+    background: #030712;
+    color: #f9fafb;
+    font-family: 'Satoshi', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
